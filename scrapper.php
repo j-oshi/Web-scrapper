@@ -16,11 +16,12 @@ class scrapper
     * Get result header title
     * return array
     */
-    public function getResultHeader($id)
+    private function getResultHeader()
     {
         if (isset($this->url)) {
             $dom = new DOMDocument();
-            @$dom->loadHTML($this->url);
+            $page_content = file_get_contents($this->url);
+            @$dom->loadHTML($page_content);
 
             $els = $dom->getElementById($id);
 
@@ -60,7 +61,7 @@ class scrapper
     }
 
 
-    public function pageResult($url)
+    private function pageResult($url)
     {
         if (isset($url)) {
             $dom = new DOMDocument();
@@ -89,7 +90,7 @@ class scrapper
     * Get query for further result
     * return array
     */
-    public function checkFurtherResultUrl()
+    private function checkFurtherResultUrl()
     {
         $dom = new DOMDocument();
         @$dom->loadHTML($this->initialResultUrl);
@@ -108,7 +109,7 @@ class scrapper
         }
     }
 
-    public function saveToCSV()
+    private function saveToCSV()
     {
         if (isset($this->resultNode)) {
             foreach ($this->resultNode as $nodename) {
