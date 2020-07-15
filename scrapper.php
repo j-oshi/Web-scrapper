@@ -114,7 +114,7 @@ class scrapper
         if (isset($this->resultNode)) {
             foreach ($this->resultNode as $nodename) {
             $header = false;
-            $fp = fopen($_SERVER["DOCUMENT_ROOT"]."/web-scrapper/result.csv", "aw+");
+            $fp = fopen($_SERVER["DOCUMENT_ROOT"]."/web-scrapper/result.csv", "w+");
             $resultValues = $nodename;
             foreach ($resultValues as $row) {
                 if (!$header) {
