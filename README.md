@@ -1,6 +1,6 @@
 # Web-scrapper
 
-
+Code scraps data from result markup.
 ## Project setup
 ```
 git clone file to server
